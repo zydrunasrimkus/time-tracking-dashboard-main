@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+@mixin top {
+    .top {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        overflow: auto;
+    }
+}
+
+@mixin bottom {
+    .bottom {
+        &:hover {
+            background-color: hsl(236, 48%, 30%);;
+        }
+        background-color: $darkBlue;
+        padding: 50px 0;
+        position: relative;
+        margin-top: -30px;;
+        border-radius: 15px;
+        @include flexBetween();
+        .left-side {
+            text-align: left;
+            margin-left: 20px;
+            color: #fff;
+            div:nth-child(1) {
+                margin-bottom: 10px;
+                font-size: 1.25rem;
+                font-weight: 500;
+            }
+            div:nth-child(2) {
+                margin-top: 10px;
+                font-size: 2.5rem;
+                font-weight: 300;
+            }
+        }
+        .right-side {
+            text-align: right;
+            margin-right: 20px;
+            span {
+                &:hover {
+                    filter: brightness(0) invert(1);
+                }
+                img {
+                    width: 30px;
+                    cursor: pointer;
+                }
+            }
+            div {
+                margin-top: 25px;
+                font-weight: 300;
+                font-size: 1rem;
+                color: $paleBlue;
+            }
+        }
+    }
+}
+
+@mixin flexBetween {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/*FONT WEIGHTS 300 400 500*/
+
+$blue: hsl(246, 80%, 60%);
+$fontSize: 18px;
+$lightRedwork: hsl(15, 100%, 70%);
+$softBlue: hsl(195, 74%, 62%);
+$lightRed: hsl(348, 100%, 68%);
+$limeGreen: hsl(145, 58%, 55%);
+$violet: hsl(264, 64%, 52%);
+$softOrange: hsl(43, 84%, 65%);
+
+/*NEUTRAL COLORS*/
+
+$veryDarkBlue: hsl(226, 43%, 10%);
+$darkBlue: hsl(235, 46%, 20%);
+$desaturatedBlue: hsl(235, 45%, 61%);
+$paleBlue: hsl(236, 100%, 87%);
+
+/*SIZES FOR SCREEN*/
+
+$mobile: 375px;
+$desktop: 1440px;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Rubik', sans-serif;
+    margin: auto;
+    width: 100%;
+    user-select: none;
+}
+
+body {
+    margin: 0 auto;
+    font-size: $fontSize;
+    background-color: $veryDarkBlue;
+}
+
+.container {
+    max-width: $mobile;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.main-card {
+    background-color: $blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 20px 0;
+    z-index: 2;
+    position: relative;
+    margin-top: 30px;
+    .main-card-image {
+        img {
+            width: 80px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    }
+    .main-card-text {
+        margin-left: 10px;
+        p {
+            margin: 0;
+            color: #fff;
+            font-weight: 400;
+        }
+        p:nth-child(1) {
+            font-size: 0.85rem;
+            color: $paleBlue;
+            font-weight: 300;
+        }
+    }
+}
+
+.main-card-flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: $darkBlue;
+    padding: 25px 0;
+    position: relative;
+    margin-top: -20px;
+    width: 100%;
+    z-index: 1;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    .active {
+        color: #fff;
+    }
+    button {
+        color: $desaturatedBlue;
+        text-decoration: none;
+        margin-top: 15px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 1.25rem;
+        font-family: 'Rubik', sans-serif;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+.info-card {
+    margin-top: 30px;
+    @include top;
+    @include bottom;
+    .work {
+        background: $lightRedwork;
+        background-image: url(/images/icon-work.svg);
+        background-repeat: no-repeat;
+        background-position: 95% -10px;
+        height: 70px;
+    }
+    .play {
+        background: $softBlue;
+        background-image: url(/images/icon-play.svg);
+        background-repeat: no-repeat;
+        background-position: 95% -10px;
+        height: 70px;
+    }
+    .study {
+        background: $lightRed;
+        background-image: url(/images/icon-study.svg);
+        background-repeat: no-repeat;
+        background-position: 95% -10px;
+        height: 70px;
+    }
+    .exercise {
+        background: $limeGreen;
+        background-image: url(/images/icon-exercise.svg);
+        background-repeat: no-repeat;
+        background-position: 95% -10px;
+        height: 70px;
+    }
+    .social {
+        background: $violet;
+        background-image: url(/images/icon-social.svg);
+        background-repeat: no-repeat;
+        background-position: 95% -10px;
+        height: 70px;
+    }
+    .self {
+        background: $softOrange;
+        background-image: url(/images/icon-self-care.svg);
+        background-repeat: no-repeat;
+        background-position: 95% -10px;
+        height: 70px;
+    }
+}
+
+.previousDesktop {
+    display: none;
+}
+
+.previousMobile {
+    display: block;
+}
+
+@media all and (min-width: 800px) {
+    @import "desktop";
+}
